@@ -8,15 +8,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       
-      - name: Say hello
-        run: echo "Hello, World! This is a test workflow."
+      - name: Use custom action
+        id: custom-action
+        uses: ./
+        with:
+          who-to-greet: 'Mona the Octocat'
       
-      - name: Show current time
-        run: echo "Current time: $(date)"
+      - name: Show random number
+        run: echo "Random number: ${{ steps.custom-action.outputs.random-number }}"
         shell: bash
-      
-      - name: Show repository info
-        run: |
-          echo "Repository: ${{ github.repository }}"
-          echo "Branch: ${{ github.ref_name }}"
-          echo "Commit: ${{ github.sha }}"
