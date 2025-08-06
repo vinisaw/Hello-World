@@ -13,6 +13,7 @@ jobs:
       
       - name: Show current time
         run: echo "Current time: $(date)"
+        shell: bash
       
       - name: Show repository info
         run: |
